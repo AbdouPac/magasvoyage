@@ -34,7 +34,7 @@ try {
     if ($stmt->fetchColumn() == 0) {
         $users = [
             ['username' => 'admin', 'password' => password_hash('Magas2025@.', PASSWORD_DEFAULT), 'role' => 'admin'],
-            ['username' => 'user', 'password' => password_hash('user123', PASSWORD_DEFAULT), 'role' => 'user']
+            ['username' => 'magas', 'password' => password_hash('Magas2612.', PASSWORD_DEFAULT), 'role' => 'user']
         ];
 
         $insertStmt = $pdo->prepare("INSERT INTO users (username, password, role) VALUES (:username, :password, :role)");
