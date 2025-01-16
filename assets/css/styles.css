@@ -477,8 +477,6 @@ nav{
     }
 }
 
-
-
 /****************************************************************/
 
 /***** CSS ET RESPONSIVE SERVICES ****************************/
@@ -580,8 +578,6 @@ nav{
         height: 160px;
     }
 }
-
-
 
 
 /****************************************************************/
@@ -826,22 +822,6 @@ nav{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* --- Responsive pour tablettes --- */
 @media (max-width: 992px) {
     .wrapper {
@@ -864,35 +844,6 @@ nav{
         width: 100%;          /* Utilise toute la largeur */
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* --- Informations de contact --- */
 .infos p {
@@ -993,41 +944,38 @@ nav{
 }
 
 
-
-
-
-
 /**************************************************************************/
 
-/******************CSS POUR LA FENETRE MODALE******************************/
+/****************  CSS POUR LA FENETRE MODALE  ****************************/
 
 /**************************************************************************/
 
 /* --- Fenêtre modale cachée par défaut --- */
 .modal {
-    display: none; /* Cachée par défaut */
+    display: none;
     position: fixed;
     z-index: 1000;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow-y: auto; /* Scroll si nécessaire */
     background-color: rgba(0, 0, 0, 0.7); /* Fond sombre semi-transparent */
-    padding: 20px; /* Espace autour de la modale */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
     box-sizing: border-box;
 }
 
-/* --- Affichage de la modale quand elle est ciblée --- */
+/* --- Afficher la modale quand elle est ciblée --- */
 .modal:target {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    animation: zoomIn 0.4s ease-in-out;
 }
 
 /* --- Contenu de la modale --- */
 .modal-content {
     background-color: #fff;
+    margin: 200px auto;
     padding: 30px;
     border-radius: 10px;
     width: 50%;
@@ -1148,36 +1096,6 @@ button[type="submit"]:hover {
         font-size: 14px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*  RESPONSIVE DESIGN */
@@ -1348,11 +1266,6 @@ button[type="submit"]:hover {
 }
 
 
-
-
-
-
-
 @media screen and (max-width: 768px) {
 
    
@@ -1398,10 +1311,6 @@ button[type="submit"]:hover {
     }
 
   }
-
-
-
-
 
 @media screen and (max-width: 500px) {
 
