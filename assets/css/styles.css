@@ -1,0 +1,1476 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+}
+
+.destination, .services{
+    margin-top: 50px;
+}
+
+p{
+    line-height: 20px;
+    color: #777;
+}
+
+.section.fullscreen {
+    height: calc(100vh - 80px); 
+    overflow: hidden;
+}
+
+.section {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    height: auto;
+    transition: height 0.8s ease-in-out, transform 0.8s ease-in-out;
+    scroll-behavior: smooth;
+}
+
+.section.fullscreen-animation {
+    animation: slideUp 0.8s ease-in-out;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* CSS NAVIGATION */
+
+nav{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    background: #fafafa;
+    box-shadow: inset 0px -1px 0px #c5c5c6;
+    z-index: 2000;
+}
+.nav-icon{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.nav-icon span{
+    font-family: Roboto Flex, sans-serif;
+}
+.nav-icon img{
+    width: 70px;
+    transform: rotate(-17deg) translateX(5px);
+}
+
+.hamburger{
+    display: none;
+}
+
+.navlinks-container a{
+    margin: 0 10px;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #414141;
+    display: inline-block;
+    position: relative;
+}
+
+.navlinks-container a::after{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    width: 100%;
+    height: 1px;
+    Transform: scaleX(0);
+    transform-origin: left;
+    background: #333;
+    transition: transform 0.3s ease-out;
+}
+
+.navlinks-container a:hover::after{
+    transform: scaleX(1);
+}
+
+.nav-contact{
+    margin-left: auto;
+}
+
+.btn-contact button{
+    font-family: Roboto Flex, sans-serif;
+    font-size: 16px;
+    min-width: 90px;
+    padding: 10px 5px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.contact-toggler{
+    display: none;
+}
+
+
+/* CSS POUR LA BANIERE */
+
+.banner {
+    position: relative; 
+    background: url('../images/mosque.jpg') no-repeat center center/cover;
+    height: 100vh; 
+}
+
+/* Overlay transparent */
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1; 
+}
+
+/* Contenu de la bannière */
+.banner-content {
+    position: relative; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+    z-index: 2; 
+    animation: fadeIn 2s ease-in-out; 
+}
+
+/* Animation pour le texte banner */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Bouton dans la bannière */
+.banner-content a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.banner-content a:hover {
+    background-color: rgba(0, 0, 0, 0.8); 
+    transform: scale(1.1); 
+}
+
+
+/****************************************************************/
+
+/***** CSS ET RESPONSIVE A PROPOS *******************************/
+
+/****************************************************************/
+
+/* --- Style général du conteneur --- */
+#about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    /* background-color: #f9f9f9; */
+}
+
+/* --- Titre principal de la section --- */
+.about h2 {
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* --- Texte de présentation --- */
+.about p {
+    font-size: 1.2em;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* --- Mise en avant des mots importants --- */
+.highlight {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* --- Conteneur des sections pour aligner horizontalement --- */
+.about-sections-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; /* Permet le retour à la ligne si nécessaire */
+}
+
+/* --- Style des blocs about-section --- */
+.about-section {
+    background-color: #fff;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 48%; /* Deux blocs côte à côte */
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- Effet au survol --- */
+.about-section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Titres des sous-sections --- */
+.about-section h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+}
+
+/* --- Paragraphes des sous-sections --- */
+.about-section p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* --- Responsive Design --- */
+
+/* Tablettes : Ajustement de la disposition */
+@media (max-width: 992px) {
+    .about-section {
+        width: 100%; /* Empile les sections */
+    }
+}
+
+/* Smartphones : Ajustements des tailles */
+@media (max-width: 768px) {
+    .about h2 {
+        font-size: 2em;
+    }
+
+    .about p {
+        font-size: 1em;
+    }
+
+    .about-section {
+        padding: 20px 15px;
+    }
+
+    .about-section h2 {
+        font-size: 1.6em;
+    }
+
+    .about-section p {
+        font-size: 0.95em;
+    }
+}
+
+
+/****************************************************************/
+
+/***** CSS ET RESPONSIVE DESTINATION ****************************/
+
+/****************************************************************/
+
+
+/* --- Style général de la section --- */
+#destination-section {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+}
+
+/* --- Titre de la section --- */
+.destination h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- Conteneur principal centré --- */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+/* --- Conteneur des cartes (Disposition en ligne sur grand écran) --- */
+.row {
+    display: flex;
+    flex-direction: row;  /* Aligne les éléments horizontalement */
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    transition: transform 0.5s ease-in-out box-shadow 0.5s ease-in-out;
+    animation: flotter 3s infinite ease-in-out;
+}
+
+/* Animation de flottement */
+@keyframes flotter {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* --- Cartes Oumrah et Hajj --- */
+.self-1, .self-2 {
+    background-color: #fff;
+    width: 45%; /* Les cartes prennent 45% chacune sur grand écran */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.self-1 h2, .self-2 h2{
+    margin: 20px auto;
+}
+
+/* --- Effet de survol --- */
+.self-1:hover, .self-2:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Images des cartes --- */
+.self-1 img, .self-2 img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* --- Boutons Voir Plus --- */
+.voir-plus-btn, .voir-plus-btn-hajj {
+    background-color: #28a745;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    margin-top: 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.voir-plus-btn:hover, .voir-plus-btn-hajj:hover {
+    background-color: #218838;
+}
+
+/* --- Texte caché initialement --- */
+.texte-etapes, .texte-etapes-hajj {
+    display: none;
+    text-align: left;
+    padding: 15px;
+    background-color: #f1f1f1;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+/* --- Responsive Design --- */
+
+/* Tablettes (jusqu'à 992px) */
+@media (max-width: 992px) {
+    .row {
+        flex-direction: row; /* Reste en ligne */
+        gap: 20px;
+    }
+
+    .self-1, .self-2 {
+        width: 48%; /* Légère réduction pour éviter les débordements */
+    }
+}
+
+/* Smartphones (jusqu'à 768px) */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column; /* Les éléments passent en colonne */
+        align-items: center;
+        gap: 20px;
+    }
+
+    .self-1, .self-2 {
+        width: 90%; /* Les cartes occupent presque toute la largeur */
+    }
+
+    .voir-plus-btn, .voir-plus-btn-hajj {
+        width: 100%;
+    }
+}
+
+/* Très petits écrans (jusqu'à 480px) */
+@media (max-width: 480px) {
+    .destination h2 {
+        font-size: 2em;
+    }
+
+    .self-1, .self-2 {
+        width: 100%; /* Prend toute la largeur de l'écran */
+        margin: 10px 0;
+    }
+
+    .voir-plus-btn, .voir-plus-btn-hajj {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .texte-etapes, .texte-etapes-hajj {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+
+
+
+/****************************************************************/
+
+/***** CSS ET RESPONSIVE SERVICES ****************************/
+
+/****************************************************************/
+
+
+/* --- Style général de la section Services --- */
+#services-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+/* --- Titre de la section --- */
+.services h2 {
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 40px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- Conteneur de la section --- */
+.service-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+/* --- Style de l'en-tête --- */
+.header p {
+    font-size: 1.3em;
+    color: #28a745;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* --- Bloc des images toujours en ligne --- */
+.images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    overflow-x: auto; /* Permet le défilement horizontal sur petits écrans */
+    white-space: nowrap; /* Empêche le retour à la ligne */
+}
+
+/* --- Images --- */
+.images img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0; /* Empêche les images de se réduire */
+}
+
+/* --- Effet au survol des images --- */
+.images img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Liste des services --- */
+.services ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.services ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    padding-left: 30px;
+    position: relative;
+}
+
+.services ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* --- Responsive Design --- */
+
+/* Tablettes et Mobiles */
+@media (max-width: 768px) {
+    .images img {
+        width: 130px;
+        height: 160px;
+    }
+}
+
+
+
+
+/****************************************************************/
+
+/***** CSS ET RESPONSIVE CONTACTS *******************************/
+
+/****************************************************************/
+
+/* --- Style général de la section Contact --- */
+#contact {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Occupe toute la hauteur de l'écran */
+}
+
+/* --- Titre de la section --- */
+#contact h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- Texte d'introduction --- */
+.text-contact p {
+    font-size: 1.1em;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    line-height: 1.8;
+}
+
+
+/* --- Blocs de contenu (Formulaire) --- */
+.form-contact {
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%; /* Ajusté pour équilibre */
+    box-sizing: border-box;
+    min-width: 280px; /* Empêche de devenir trop petit */
+}
+
+
+
+/* --- Formulaire de contact --- */
+.form-contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* --- Groupe pour les champs alignés horizontalement --- */
+.input-group {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+/* --- Chaque champ à 50% de la largeur --- */
+.input-group input {
+    width: 50%;
+}
+
+.form-contact textarea {
+    height: 200px;
+}
+
+/* --- Champs texte et textarea classiques --- */
+.form-contact input, 
+.form-contact textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* --- Bouton d'envoi --- */
+.form-contact button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 12px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    width: 30%;
+}
+
+.form-contact button:hover {
+    background-color: #218838;
+}
+
+
+/* --- Wrapper pour centrer et aligner les éléments en ligne --- */
+.wrapper {
+    display: flex;
+    justify-content: center; 
+    align-items: center;      
+    gap: 30px;                
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-wrap: nowrap;  
+    margin-top: 50px;      
+}
+
+/* --- Style des blocs Infos et Localisation --- */
+.localisation {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    height: 350px;               /* Ajuste la largeur pour mieux répartir */
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* --- Style de la carte Google Maps --- */
+.localisation iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    border-radius: 10px;
+    border: none;
+}
+
+/* --- Centrage global de la section .infos --- */
+.infos {
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;   
+    align-items: center;       
+    text-align: center;       
+    height: 350px;             
+    width: 500px;
+    background-color: #f9f9f9; 
+}
+
+/* --- Texte des informations de contact --- */
+.infos p {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.infos p strong {
+    color: #28a745;
+}
+
+
+/* --- Bloc de contact centré --- */
+.contact-block {
+    gap: 10px;                 /* Espacement entre l'icône et le texte */
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+/* --- Icône stylisée --- */
+.contact-block i {
+    font-size: 4em;    /* Grande taille pour l'icône */
+    color: #28a745;    /* Vert pour cohérence avec le design */
+    margin-bottom: 50px;
+}
+
+/* --- Texte des contacts --- */
+.contact-block p {
+    font-size: 1em;
+    color: #333;
+    margin: 0;
+}
+
+
+
+/****************************************************************/
+
+/***** ANIMATION CONTACTS *******************************/
+
+/****************************************************************/
+
+
+/* --- Animation générale pour les blocs de .wrapper --- */
+.wrapper > div {
+    opacity: 0;                   /* Invisible au départ */
+    transform: translateY(50px);  /* Décalage vers le bas */
+    animation: fadeInUp 1s ease-out forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- Délai pour chaque bloc pour un effet fluide --- */
+.wrapper > div:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.wrapper > div:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.wrapper > div:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* --- Animation d'apparition --- */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Effet au survol : agrandissement et ombre renforcée --- */
+.wrapper > div:hover {
+    transform: scale(1.05);           /* Légère augmentation de taille */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);  /* Ombre plus marquée */
+}
+
+/* --- Maintien du style des blocs --- */
+.infos, .localisation {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    height: 350px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Responsive pour tablettes --- */
+@media (max-width: 992px) {
+    .wrapper {
+        flex-wrap: wrap;       /* Passe les éléments à la ligne si nécessaire */
+    }
+
+    .infos, .localisation {
+        width: 80%;           /* Prend plus de place sur écran moyen */
+        margin-bottom: 20px;
+    }
+}
+
+/* --- Responsive pour mobiles --- */
+@media (max-width: 768px) {
+    .wrapper {
+        flex-direction: column; /* Aligne verticalement sur petits écrans */
+    }
+
+    .infos, .localisation {
+        width: 100%;          /* Utilise toute la largeur */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Informations de contact --- */
+.infos p {
+    text-align: left;
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.infos p strong {
+    color: #28a745;
+}
+
+/* --- Formulaire de contact --- */
+.form-contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-contact input, 
+.form-contact textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+
+.form-contact input:focus, 
+.form-contact textarea:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-contact button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.form-contact button:hover {
+    background-color: #218838;
+}
+
+/* --- Google Maps --- */
+.localisation iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: none;
+    min-height: 300px;
+}
+
+/* --- Copyright --- */
+#contact .copyright {
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+#contact .copyright strong {
+    color: #28a745;
+}
+
+/* --- Responsive Design --- */
+
+/* Tablettes et écrans moyens */
+@media (max-width: 992px) {
+    .wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .infos, .form-contact, .localisation {
+        width: 45%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Smartphones */
+@media (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .infos, .form-contact, .localisation {
+        width: 90%;
+    }
+}
+
+
+
+
+
+
+/**************************************************************************/
+
+/******************CSS POUR LA FENETRE MODALE******************************/
+
+/**************************************************************************/
+
+/* --- Fenêtre modale cachée par défaut --- */
+.modal {
+    display: none; /* Cachée par défaut */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Scroll si nécessaire */
+    background-color: rgba(0, 0, 0, 0.7); /* Fond sombre semi-transparent */
+    padding: 20px; /* Espace autour de la modale */
+    box-sizing: border-box;
+}
+
+/* --- Affichage de la modale quand elle est ciblée --- */
+.modal:target {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Contenu de la modale --- */
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 50%;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: zoomIn 0.4s ease-in-out;
+    box-sizing: border-box;
+}
+
+.modal-content h3{
+   text-align: center;
+   font-size: 30px;
+   margin-top: 30px;
+   margin-bottom: 30px;
+}
+
+/* --- Formulaire dans la modale --- */
+.modal-content .form-contact {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- Animation d'apparition --- */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* --- Bouton de fermeture --- */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+/* --- Style des champs du formulaire --- */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.input-group input,
+textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+.input-group input:focus,
+textarea:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* --- Bouton d'envoi --- */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #48cf68;
+}
+
+/* --- Responsive pour tablettes --- */
+@media (max-width: 992px) {
+    .modal-content {
+        width: 70%;
+        padding: 25px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+}
+
+/* --- Responsive pour mobiles --- */
+@media (max-width: 600px) {
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    .close-btn {
+        font-size: 24px;
+    }
+
+    button[type="submit"] {
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  RESPONSIVE DESIGN */
+
+
+/* Menu Nav */
+
+@media (max-width: 900px){
+    nav{
+        padding: 15px 20px;
+        position: relative;
+    }
+
+    .nav-icon{
+        order: 2;
+        margin: 0 auto;
+    }
+
+    .main-navlinks{
+        order: 1;
+        z-index: 1001;
+
+    }
+
+    #destination-section{
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Hamburger */
+    .hamburger{
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        border: none;
+        display: flex;
+        background: #fafafa;
+        align-items: center;
+        position: relative;
+    }
+
+    .hamburger span{
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #333;
+        position: absolute;
+        pointer-events: none;
+        transition: opacity 0.3s 0.15s ease-out;
+    }
+
+    .hamburger span:nth-child(1),
+    .hamburger span:nth-child(3){
+        transition: transform 0.3s ease-out;
+    }
+
+    .hamburger span:nth-child(1){
+        transform: translateY(7px);
+    }
+
+    .hamburger span:nth-child(3){
+        transform: translateY(-7px);
+    }
+
+    .hamburger.open span:nth-child(1){
+        transform: translate(0) rotate(135deg);
+    }
+
+    .hamburger.open span:nth-child(2){
+        opacity: 0;
+        transform: opacity 0s ease-out;
+    }
+
+    .hamburger.open span:nth-child(3){
+        transform: translate(0) rotate(-135deg);
+    }
+
+    
+    .navlinks-container{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        background: #fafafa;
+        top: 100%;
+        left: 0;
+        height: 100vh;
+        padding: 15px 50px 15px 20px;
+        border-right: 1px solid #c5c5c6;
+        transform: translate(-100%);
+        z-index: 2000;
+    }
+
+    .open{
+        transform: translate(0%);
+        z-index: 2000;
+    }
+
+    .navlinks-container a{
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+    .nav-contact{
+        order: 3;
+        margin-left: 0;
+    }
+
+    .btn-contact{
+        display: none;
+    }
+
+    .contact-toggler{
+        display: block;
+        cursor: pointer;
+        border: none;
+    }
+
+    .nav-icon img{
+        width: 70px;
+
+    }
+
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .infos, .form-contact, .localisation {
+        width: 100%;
+        max-width: 400px; 
+    }
+
+    .footer-section {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .infos, .localisation {
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .localisation iframe {
+        height: 250px;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+    
+    .form-contact form input,
+    .form-contact form textarea,
+    .form-contact form button {
+        width: 100%;
+    }
+
+    .text-contact{
+        max-width: 400px;
+    }
+
+
+
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+
+   
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .infos, .form-contact, .localisation {
+        width: 100%;
+        max-width: 400px; 
+    }
+
+    .footer-section {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .infos, .localisation {
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .localisation iframe {
+        height: 250px;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+    
+    .form-contact form input,
+    .form-contact form textarea,
+    .form-contact form button {
+        width: 100%;
+    }
+
+    .text-contact{
+        max-width: 400px;
+    }
+
+  }
+
+
+
+
+
+@media screen and (max-width: 500px) {
+
+    #destination-section{
+        width: 400px;
+    }
+
+    .row {
+      flex-direction: column; 
+      align-items: center; 
+    }
+  
+    .self-1, .self-2 {
+      width: 400px; 
+      margin-bottom: 20px; 
+    }
+    
+    img {
+      width: 100%; 
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .infos, .form-contact, .localisation {
+        width: 100%;
+        max-width: 400px; 
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+    
+    .form-contact form input,
+    .form-contact form textarea,
+    .form-contact form button {
+        width: 100%;
+    }
+
+    .text-contact{
+        max-width: 400px;
+    }
+
+    .nav-icon img{
+        width: 50px;
+    }
+
+  }
+
+
+@media (max-width: 768px) {
+    .footer-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .infos, .form-contact, .localisation {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+
+

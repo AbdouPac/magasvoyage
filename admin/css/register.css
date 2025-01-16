@@ -1,0 +1,156 @@
+/* --- Style global --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* --- Conteneur principal --- */
+.main-container {
+    background-color: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+/* --- Titre de la page --- */
+.connexion h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Formulaire --- */
+.form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form label {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    transition: border 0.3s ease;
+}
+
+.form input:focus {
+    border-color: #28a745;
+    outline: none;
+}
+
+/* --- Bouton S'inscrire --- */
+.form button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.form button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+/* --- Lien vers la connexion --- */
+.form p a {
+    color: #28a745;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form p a:hover {
+    text-decoration: underline;
+}
+
+/* --- Messages d'erreur et de succès --- */
+.form p {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.form p.error {
+    color: #e74c3c;
+}
+
+.form p.success {
+    color: #28a745;
+}
+
+/* --- Responsive Design --- */
+
+/* Tablettes (jusqu'à 992px) */
+@media (max-width: 992px) {
+    .main-container {
+        width: 80%;
+        padding: 30px 20px;
+    }
+
+    .connexion h2 {
+        font-size: 1.8em;
+    }
+
+    .form button {
+        font-size: 0.9em;
+    }
+}
+
+/* Smartphones (jusqu'à 768px) */
+@media (max-width: 768px) {
+    .main-container {
+        width: 100%;
+        padding: 20px 15px;
+    }
+
+    .connexion h2 {
+        font-size: 1.6em;
+    }
+
+    .form input, .form button {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+
+/* Très petits écrans (jusqu'à 480px) */
+@media (max-width: 480px) {
+    .connexion h2 {
+        font-size: 1.4em;
+    }
+
+    .form input, .form button {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+
+    .form p {
+        font-size: 0.9em;
+    }
+}
